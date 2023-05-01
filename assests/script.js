@@ -5,8 +5,21 @@ function generatePassword() {
 
   while(characters < 8 || characters > 128) {
     alert("Invalid number");
-    generatePassword();
+    userCharacters = prompt("How many characters you want?");
+    characters = parseInt(userCharacters);
   }
+
+  var userLowPassword = prompt("Do you want lowercase letters?");
+  var selectLowPassword = userLowPassword;
+
+  var userUpPassword = prompt("Do you want Uppercase letters?");
+  var selectUPPassword = userUpPassword;
+
+  var userNumericPassword = prompt("Do you want numeric characters?");
+  var selectNumericPassword = userNumericPassword;
+
+  var userSpecial = prompt("Do you want special characters?");
+  var selectSpecial = userSpecial;
 }
 
 // Get references to the #generate element
