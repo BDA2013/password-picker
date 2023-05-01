@@ -1,19 +1,12 @@
 // Assignment code here
-function prompt() {
+function generatePassword() {
   var userCharacters = prompt("How many characters you want?");
   characters = parseInt(userCharacters);
-  switch (characters) {
-    case null: alert()
-  }
 
   while(characters < 8 || characters > 128) {
-    userCharacters = prompt("How many characters you want?");
-    characters = parseInt(userCharacters);
+    alert("Invalid number");
+    generatePassword();
   }
-}
-
-function generatePassword() {
-
 }
 
 // Get references to the #generate element
