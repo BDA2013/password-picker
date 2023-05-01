@@ -1,5 +1,20 @@
 // Assignment code here
+function prompt() {
+  var userCharacters = prompt("How many characters you want?");
+  characters = parseInt(userCharacters);
+  switch (characters) {
+    case null: alert()
+  }
 
+  while(characters < 8 || characters > 128) {
+    userCharacters = prompt("How many characters you want?");
+    characters = parseInt(userCharacters);
+  }
+}
+
+function generatePassword() {
+
+}
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
