@@ -20,6 +20,9 @@ function generatePassword() {
 
   var userSpecial = prompt("Do you want special characters?");
   var selectSpecial = userSpecial;
+
+  var alphabetNumericCharacters = 'abcdefghijklmnopqrstuvwxyz'.split("");
+  var numericCharacters = '0123456789'.split("");
 }
 
 // Get references to the #generate element
