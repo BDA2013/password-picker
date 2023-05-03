@@ -1,5 +1,11 @@
 // Assignment code here
 function generatePassword() {
+  // Index 0-25 are for letters. 26-35 are for numbers
+  var alphabetNumericCharacters = 'abcdefghijklmnopqrstuvwxyz0123456789'.split("");
+  var specialCharacters = [" ", "!", '"', "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".",
+                           "/", ":", ";", "<", "=", ">", "?", "@", "[", "]", "^", "_", "`", "{", "|", 
+                           "}", "~"];
+
   var userCharacters = prompt("How many characters you want?");
   characters = parseInt(userCharacters);
 
@@ -10,19 +16,15 @@ function generatePassword() {
   }
 
   var userLowPassword = prompt("Do you want lowercase letters?");
-  var selectLowPassword = userLowPassword;
-
+  //var selectLowPassword = userLowPassword;
   var userUpPassword = prompt("Do you want Uppercase letters?");
-  var selectUPPassword = userUpPassword;
-
+  //var selectUPPassword = userUpPassword;
   var userNumericPassword = prompt("Do you want numeric characters?");
-  var selectNumericPassword = userNumericPassword;
-
+  //var selectNumericPassword = userNumericPassword;
   var userSpecial = prompt("Do you want special characters?");
-  var selectSpecial = userSpecial;
+  //var selectSpecial = userSpecial;
 
-  var alphabetNumericCharacters = 'abcdefghijklmnopqrstuvwxyz'.split("");
-  var numericCharacters = '0123456789'.split("");
+
 }
 
 // Get references to the #generate element
