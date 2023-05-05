@@ -10,42 +10,50 @@ function generatePassword() {
                            "}", "~"];
   var password = [];
 
-  var userCharacters = prompt("How many characters you want?");
-  var characters = parseInt(userCharacters);
-
-  while(characters < 8 || characters > 128) {
-    alert("Invalid number");
-    userCharacters = prompt("How many characters you want?");
-    characters = parseInt(userCharacters);
-  }
-
-  var confirmLowPassword = prompt("Do you want lowercase letters?");
-  var confirmUpPassword = prompt("Do you want Uppercase letters?");
-  var confirmNumericPassword = prompt("Do you want numeric characters?");
-  var confirmSpecialPassword = prompt("Do you want special characters?");
-
   //Gathering the user choices
-  while (confirmLowPassword != 'y' || 'n') {
-    alert("y or n only");
-    confirmLowPassword = prompt("Do you want lowercase letters?");
+
+  //While asking user, it will convert to the integer value
+  var userCharacters = parseInt(prompt("How many characters you want?"));
+
+  //If the user type in a string value, the error will pop up until it's corrected
+  while (isNaN(userCharacters) || userCharacters < 8 || userCharacters > 128) {
+    if(isNaN(userCharacters)) {
+      alert("It must be a number");
+    } else {
+      alert("Invalid number");
+    };
+    userCharacters = parseInt(prompt("How many characters you want?"));
   };
 
-  while (confirmUpPassword != 'y' || 'n') {
-    alert("y or n only");
-    confirmUpPassword = prompt("Do you want Uppercase letters?");
-    
+  //Issue: The prompt keeps looping despite typing in "yes" or "no"
+  //Solution: Before I used the OR scenerio, rather than AND scenario where it'd loop regardless if I typed yes or no.
+  var userLowPassword = prompt("Do you want lowercase letters?");
+  while (userLowPassword != "y" && userLowPassword != "n") {
+    //console.log(confirmLowPassword);
+    alert("y for yes, or n for no only");
+    userLowPassword = prompt("Do you want lowercase letters?"); 
   };
 
-  while (confirmNumericPassword != 'y' || 'n') {
-    alert("y or n only");
-    confirmNumericPassword = prompt("Do you want numeric characters?");
+
+  var userUpPassword = prompt("Do you want Uppercase letters?");
+  while (userUpPassword != 'y' && 'n') {
+    alert("y for yes, or n for no only");
+    userUpPassword = prompt("Do you want Uppercase letters?");  
+  };
+  
+
+  var userNumericPassword = prompt("Do you want numeric characters?");
+  while (userNumericPassword != 'y' && 'n') {
+    alert("y for yes, or n for no only");
+    userNumericPassword = prompt("Do you want numeric characters?");
   };
 
-  while (confirmSpecialPassword != 'y' || 'n') {
-    alert("y or n only");
-    confirmSpecialPassword = prompt("Do you want special characters?");
+  var userSpecialPassword = prompt("Do you want special characters?");
+  while (userSpecialPassword != 'y' && 'n') {
+    alert("y for yes, or n for no only");
+    userSpecialPassword = prompt("Do you want special characters?"); 
   };
-}
+} 
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
