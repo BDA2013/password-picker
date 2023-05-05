@@ -2,6 +2,7 @@
 function generatePassword() {
   // Index 0-25 are for letters. 26-35 are for numbers
   var characters;
+  var selectedCharacters;
   var alphaCharacters = 'abcdefghijklmnopqrstuvwxyz'.split("");
   var numCharacters = '0123456789'.split("");
   var specialCharacters = [" ", "!", '"', "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".",
@@ -43,25 +44,6 @@ function generatePassword() {
   while (confirmSpecialPassword != 'y' || 'n') {
     alert("y or n only");
     confirmSpecialPassword = prompt("Do you want special characters?");
-  };
-
-  if (confirmUpPassword == 'y') {
-    alphaCharacters.toUpperCase();
-  }
-
-  //Putting the choices together
-  if (confirmNumericPassword == 'y' && confirmSpecialPassword == 'y') {
-    characters = alphaCharacters.concat(numCharacters, specialCharacters);
-  } else if (confirmNumericPassword == 'y' && confirmSpecialPassword == 'n') {
-    characters = alphaCharacters.concat(numCharacters);
-  } else if (confirmNumericPassword == 'n' && confirmSpecialPassword == 'y') {
-    characters = alphaCharacters.concat(specialCharacters);
-  } else {
-    characters = alphaCharacters;
-  }
-
-  for (var i = 0; i < characters; i++){
-    
   };
 }
 
