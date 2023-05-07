@@ -24,4 +24,5 @@ Password Picker is a generator that picks out the password for you for any websi
 
 ## Notes
 For some codes, like the function for capitalizing the alphabets, are from looking up on Google since I had a hard time getting it to work at first.
+
 Link for the website: https://bda2013.github.io/password-picker/
