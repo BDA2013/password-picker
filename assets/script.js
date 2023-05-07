@@ -1,5 +1,6 @@
 // Assignment code here
 function generatePassword() {
+  //Initializing values
   // Index 0-25 are for letters. 26-35 are for numbers
   var characters = [];
   var selectedCharacters = [];
@@ -13,7 +14,7 @@ function generatePassword() {
   //Gathering the user choices
 
   //While asking user, it will convert to the integer value
-  var numOfCharacters = parseInt(prompt("How many characters you want?"));
+  var numOfCharacters = parseInt(prompt("How many characters you want? Choose between 8 and 126."));
   
 
   //If the user type in a string value, the error will pop up until it's corrected
@@ -27,72 +28,72 @@ function generatePassword() {
   };
 
   //Issue: The prompt keeps looping despite typing in "yes" or "no"
-  //Solution: Before, I used the OR scenerio rather than AND scenario where it'd loop regardless if I typed yes or no.
-  var userLowPassword = prompt("Do you want lowercase letters?");
-  while (userLowPassword !== "y" && userLowPassword !== "n") {
-    //console.log(userLowPassword);
-    alert("y for yes, or n for no only");
-    userLowPassword = prompt("Do you want lowercase letters?"); 
+  //Solution: Before, I used the OR scenerio, after looking up, using AND scenario will loop if neither of the choices are made.
+  var userLowPassword = prompt("Do you want lowercase letters? 'yes' or 'no' only.");
+  while (userLowPassword !== "yes" && userLowPassword !== "no") {
+    alert("Invalid Response");
+    userLowPassword = prompt("Do you want lowercase letters? 'yes' or 'no' only."); 
   };
 
-  var userUpPassword = prompt("Do you want Uppercase letters?");
-  while (userUpPassword != 'y' && userUpPassword != 'n') {
-    alert("y for yes, or n for no only");
-    userUpPassword = prompt("Do you want Uppercase letters?");  
+  var userUpPassword = prompt("Do you want Uppercase letters? 'yes' or 'no' only.");
+  while (userUpPassword != 'yes' && userUpPassword != 'no') {
+    alert("Invalid Response");
+    userUpPassword = prompt("Do you want Uppercase letters? 'yes' or 'no' only.");  
   };
   
 
-  var userNumericPassword = prompt("Do you want numeric characters?");
-  while (userNumericPassword != 'y' && userNumericPassword != 'n') {
-    alert("y for yes, or n for no only");
-    userNumericPassword = prompt("Do you want numeric characters?");
+  var userNumericPassword = prompt("Do you want numeric characters? 'yes' or 'no' only.");
+  while (userNumericPassword != 'yes' && userNumericPassword != 'no') {
+    alert("Invalid Response");
+    userNumericPassword = prompt("Do you want numeric characters? 'yes' or 'no' only.");
   };
 
-  var userSpecialPassword = prompt("Do you want special characters?");
-  while (userSpecialPassword != 'y' && userSpecialPassword != 'n') {
-    alert("y for yes, or n for no only");
-    userSpecialPassword = prompt("Do you want special characters?"); 
+  var userSpecialPassword = prompt("Do you want special characters? 'yes' or 'no' only.");
+  while (userSpecialPassword != 'yes' && userSpecialPassword != 'no') {
+    alert("Invalid Response");
+    userSpecialPassword = prompt("Do you want special characters? 'yes' or 'no' only."); 
   };
 
+  //Added the function to capitalize the alphabets if neccessary
   function alphaToUpper(alpha) {
     return alpha.toUpperCase();
   }
 
   //Putting the choices together
-  //1st half possibility where userLowPassword is y for yes
-  if (userLowPassword == 'y' && userNumericPassword == 'y' && userSpecialPassword == 'y' && userUpPassword == 'y') {
+  //1st half possibility where userLowPassword is yes
+  if (userLowPassword == 'yes' && userNumericPassword == 'yes' && userSpecialPassword == 'yes' && userUpPassword == 'yes') {
     characters = selectedCharacters.concat(alphaCharacters, numCharacters, specialCharacters, alphaCharacters.map(alphaToUpper));
-  } else if (userLowPassword == 'y' && userNumericPassword == 'y' && userSpecialPassword == 'y' && userUpPassword == 'n') {
+  } else if (userLowPassword == 'yes' && userNumericPassword == 'yes' && userSpecialPassword == 'yes' && userUpPassword == 'no') {
     characters = selectedCharacters.concat(alphaCharacters, numCharacters, specialCharacters);
-  } else if (userLowPassword == 'y' && userNumericPassword == 'y' && userSpecialPassword == 'n' && userUpPassword == 'y') {
+  } else if (userLowPassword == 'yes' && userNumericPassword == 'yes' && userSpecialPassword == 'no' && userUpPassword == 'yes') {
     characters = selectedCharacters.concat(alphaCharacters, numCharacters, alphaCharacters.map(alphaToUpper));
-  } else if (userLowPassword == 'y' && userNumericPassword == 'y' && userSpecialPassword == 'n' && userUpPassword == 'n') {
+  } else if (userLowPassword == 'yes' && userNumericPassword == 'yes' && userSpecialPassword == 'no' && userUpPassword == 'no') {
     characters = selectedCharacters.concat(alphaCharacters, numCharacters);
-  } else if (userLowPassword == 'y' && userNumericPassword == 'n' && userSpecialPassword == 'y' && userUpPassword == 'y') {
+  } else if (userLowPassword == 'yes' && userNumericPassword == 'no' && userSpecialPassword == 'yes' && userUpPassword == 'yes') {
     characters = selectedCharacters.concat(alphaCharacters, specialCharacters, alphaCharacters.map(alphaToUpper));
-  } else if (userLowPassword == 'y' && userNumericPassword == 'n' && userSpecialPassword == 'y' && userUpPassword == 'n') {
+  } else if (userLowPassword == 'yes' && userNumericPassword == 'no' && userSpecialPassword == 'yes' && userUpPassword == 'no') {
     characters = selectedCharacters.concat(alphaCharacters, specialCharacters);
-  } else if (userLowPassword == 'y' && userNumericPassword == 'n' && userSpecialPassword == 'n' && userUpPassword == 'y') {
+  } else if (userLowPassword == 'yes' && userNumericPassword == 'no' && userSpecialPassword == 'no' && userUpPassword == 'yes') {
     characters = selectedCharacters.concat(alphaCharacters, alphaCharacters.map(alphaToUpper));
-  } else if (userLowPassword == 'y' && userNumericPassword == 'n' && userSpecialPassword == 'n' && userUpPassword == 'n') {
+  } else if (userLowPassword == 'yes' && userNumericPassword == 'no' && userSpecialPassword == 'no' && userUpPassword == 'no') {
     characters = selectedCharacters.concat(alphaCharacters);
 
-  //2nd half possibility where userLowPassword is n for no
-  } else if (userLowPassword == 'n' && userNumericPassword == 'y' && userSpecialPassword == 'y' && userUpPassword == 'y') {
+  //2nd half possibility where userLowPassword is no
+  } else if (userLowPassword == 'no' && userNumericPassword == 'yes' && userSpecialPassword == 'yes' && userUpPassword == 'yes') {
     characters = selectedCharacters.concat(numCharacters, specialCharacters, alphaCharacters.map(alphaToUpper));
-  } else if (userLowPassword == 'n' && userNumericPassword == 'y' && userSpecialPassword == 'y' && userUpPassword == 'n') {
+  } else if (userLowPassword == 'no' && userNumericPassword == 'yes' && userSpecialPassword == 'yes' && userUpPassword == 'no') {
     characters = selectedCharacters.concat(numCharacters, specialCharacters);
-  } else if (userLowPassword == 'n' && userNumericPassword == 'y' && userSpecialPassword == 'n' && userUpPassword == 'y') {
+  } else if (userLowPassword == 'no' && userNumericPassword == 'yes' && userSpecialPassword == 'no' && userUpPassword == 'yes') {
     characters = selectedCharacters.concat(numCharacters, alphaCharacters.map(alphaToUpper));
-  } else if (userLowPassword == 'n' && userNumericPassword == 'y' && userSpecialPassword == 'n' && userUpPassword == 'n') {
+  } else if (userLowPassword == 'no' && userNumericPassword == 'yes' && userSpecialPassword == 'no' && userUpPassword == 'no') {
     characters = selectedCharacters.concat(numCharacters);
-  } else if (userLowPassword == 'n' && userNumericPassword == 'n' && userSpecialPassword == 'y' && userUpPassword == 'y') {
+  } else if (userLowPassword == 'no' && userNumericPassword == 'no' && userSpecialPassword == 'yes' && userUpPassword == 'yes') {
     characters = selectedCharacters.concat(specialCharacters, alphaCharacters.map(alphaToUpper));
-  } else if (userLowPassword == 'n' && userNumericPassword == 'n' && userSpecialPassword == 'y' && userUpPassword == 'n') {
+  } else if (userLowPassword == 'no' && userNumericPassword == 'no' && userSpecialPassword == 'yes' && userUpPassword == 'no') {
     characters = selectedCharacters.concat(specialCharacters);
-  } else if (userLowPassword == 'n' && userNumericPassword == 'n' && userSpecialPassword == 'n' && userUpPassword == 'y') {
+  } else if (userLowPassword == 'no' && userNumericPassword == 'no' && userSpecialPassword == 'no' && userUpPassword == 'yes') {
     characters = selectedCharacters.concat(alphaCharacters.map(alphaToUpper));
-  } else if (userLowPassword == 'n' && userNumericPassword == 'n' && userSpecialPassword == 'n' && userUpPassword == 'n') {
+  } else if (userLowPassword == 'no' && userNumericPassword == 'no' && userSpecialPassword == 'no' && userUpPassword == 'no') {
     characters = selectedCharacters.concat(alphaCharacters);
   }
 
@@ -104,7 +105,7 @@ function generatePassword() {
 
     for (var c = 0, l = characters.length; c < numOfCharacters; c++) {
       var i = getRandomInt(l)
-      password.push(characters[i]); //Math.floor(Math.random * characters.length)
+      password.push(characters[i]);
       console.log(password);
     };
     
